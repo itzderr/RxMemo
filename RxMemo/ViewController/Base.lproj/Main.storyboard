@@ -38,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zzb-F5-B1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1929" y="468"/>
+            <point key="canvasLocation" x="1905" y="468"/>
         </scene>
         <!--New Memo-->
         <scene sceneID="f3O-W8-VIy">
@@ -59,7 +59,7 @@
         <!--Memo Detail View Controller-->
         <scene sceneID="hMV-Vo-joO">
             <objects>
-                <viewController id="qMO-r9-abK" customClass="MemoDetailViewController" customModule="RxMemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailVC" id="qMO-r9-abK" customClass="MemoDetailViewController" customModule="RxMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0hT-OP-Pln">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,7 +83,7 @@
         <!--Navigation Controller-->
         <scene sceneID="hkv-Vs-YVq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NyH-Ux-dyM" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ListNav" automaticallyAdjustsScrollViewInsets="NO" id="NyH-Ux-dyM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Znm-Iz-BUr">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
@@ -101,7 +101,7 @@
         <!--Navigation Controller-->
         <scene sceneID="jDR-tU-jvZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ItL-GZ-FKz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ComposeNav" automaticallyAdjustsScrollViewInsets="NO" id="ItL-GZ-FKz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="3tH-Oz-iGd">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
