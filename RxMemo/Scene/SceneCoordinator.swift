@@ -8,16 +8,18 @@
 import Foundation
 import RxSwift
 
+extension UIViewController {
+  var sceneViewController: UIViewController {
+    return self.children.first ?? self
+  }
+}
+
 // Responsibility: Scene Transition (Window, CurrentVC)
 class SceneCoordinator: SceneCoordinatorType {
   private let bag = DisposeBag()
   
   private var window: UIWindow
-  private var currentVC: UIViewController {
-    didSet {
-      window.rootViewController = currentVC
-    }
-  }
+  private var currentVC: UIViewController
   
   required init(window: UIWindow) {
     self.window = window
@@ -31,7 +33,8 @@ class SceneCoordinator: SceneCoordinatorType {
     
     switch style {
     case .root:
-      currentVC = target
+      currentVC = target.sceneViewController
+      window.rootViewController = target
       subject.onCompleted()
     case .push:
       guard let nav = currentVC.navigationController else {
@@ -39,13 +42,13 @@ class SceneCoordinator: SceneCoordinatorType {
         break
       }
       nav.pushViewController(target, animated: animated)
-      currentVC = target
+      currentVC = target.sceneViewController
       subject.onCompleted()
     case .modal:
       currentVC.present(target, animated: animated) {
         subject.onCompleted()
       }
-      currentVC = target
+      currentVC = target.sceneViewController
     }
     
     return subject.ignoreElements().asCompletable()
