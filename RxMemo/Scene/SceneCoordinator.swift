@@ -58,7 +58,7 @@ class SceneCoordinator: SceneCoordinatorType {
     return Completable.create { [unowned self] completable in
       if let presentingVC = self.currentVC.presentingViewController {
         self.currentVC.dismiss(animated: animated) {
-          self.currentVC = presentingVC
+          self.currentVC = presentingVC.sceneViewController
           completable(.completed)
         }
       } else if let nav = self.currentVC.navigationController {
