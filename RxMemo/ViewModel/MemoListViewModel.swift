@@ -39,6 +39,15 @@ class MemoListViewModel: CommonViewModel   {
         }
     }
   }
+  
+  lazy var detailAction: Action<Memo, Void> = {
+    return Action { memo in
+      let detailViewModel = MemoDetailViewModel(memo: memo, title: "View Memo", sceneCoordinator: self.sceneCoordinator, storage: self.storage)
+      let detailScene = Scene.detail(detailViewModel)
+      return self.sceneCoordinator.transition(to: detailScene, using: .push, animated: true).asObservable().map { _ in }
+    }
+  }()
+  
 }
 
 
