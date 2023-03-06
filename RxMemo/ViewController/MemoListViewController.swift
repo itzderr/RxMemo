@@ -42,6 +42,10 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
       .map { $0.0 }
       .bind(to: viewModel.detailAction.inputs)
       .disposed(by: rx.disposeBag)
+    
+    tableView.rx.modelDeleted(Memo.self)
+      .bind(to: viewModel.deleteAction.inputs)
+      .disposed(by: rx.disposeBag)
   }
   
 }
